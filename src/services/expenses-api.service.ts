@@ -13,15 +13,30 @@ export class ExpensesService {
   constructor(
     private http: HttpClient
   ) {
-    this.apiBaseUrl = 'http://127.0.0.1:8080/';
+    this.apiBaseUrl = 'http://192.168.0.107:8080/';
     // this.apiBaseUrl = 'https://foodnovate-api.herokuapp.com/';
   }
 
-  getExpenses() {
-    const uri = this.apiBaseUrl + 'expenses';
+  getExpenses(offset) {
+    const uri = this.apiBaseUrl + `expenses?limit=20&offset=${offset}`;
     return this.http.get(uri)
       .map((response) => {
-        console.log('response', response);
+        return response;
+      });
+  }
+
+  postExpense(expense) {
+    const uri = this.apiBaseUrl + 'expenses';
+    return this.http.post(uri, expense)
+      .map((response) => {
+        return response;
+      });
+  }
+
+  getTypes() {
+    const uri = this.apiBaseUrl + 'types';
+    return this.http.get(uri)
+      .map((response) => {
         return response;
       });
   }

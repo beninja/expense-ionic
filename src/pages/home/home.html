@@ -6,30 +6,40 @@
 
 <ion-content padding>
   <h2 *ngIf="!expenses">Chargement des dernière transactions !</h2>
-  <ion-grid *ngIf="expenses">
-    <ion-row class="header">
-      <ion-col col-4>
-        Date
-      </ion-col>
-      <ion-col col-4>
-        Type
-      </ion-col>
-      <ion-col col-4>
-        Valeur
-      </ion-col>
-    </ion-row>
-    <ion-row
-      *ngFor="let expense of expenses; let odd = odd"
-      [class.odd]="odd">
-      <ion-col col-4 class="alignCenter">
-        {{expense.createdAt | date}}
-      </ion-col>
-      <ion-col col-4 class="alignCenter">
-        {{expense.type}}
-      </ion-col>
-      <ion-col col-4 class="alignRight">
-        {{expense.value}}€
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+  <ion-list>
+    <ion-grid *ngIf="expenses">
+      <ion-row class="header">
+        <ion-col col-4>
+          Date
+        </ion-col>
+        <ion-col col-4>
+          Type
+        </ion-col>
+        <ion-col col-4>
+          Valeur
+        </ion-col>
+      </ion-row>
+      <ion-row
+        *ngFor="let expense of expenses; let odd = odd"
+        [class.odd]="odd">
+        <ion-col col-4 class="alignCenter">
+          {{expense.createdAt | date}}
+        </ion-col>
+        <ion-col col-4 class="alignCenter">
+          <ion-icon *ngIf="expense._type" name="{{expense._type.logo}}" color="dark"></ion-icon>
+        </ion-col>
+        <ion-col col-4 class="alignRight">
+          {{expense.value}}€
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-list>
+  <ion-infinite-scroll *ngIf="showInfinitScroll" (ionInfinite)="doInfinite($event)">
+   <ion-infinite-scroll-content></ion-infinite-scroll-content>
+ </ion-infinite-scroll>
 </ion-content>
+<ion-footer>
+  <ion-toolbar>
+     <button ion-button outline block (click)="presentModal()">Ajouter une transaction</button>
+  </ion-toolbar>
+</ion-footer>

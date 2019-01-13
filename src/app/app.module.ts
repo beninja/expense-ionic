@@ -7,6 +7,7 @@ import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
+import { ExpenseformPage } from '../pages/expenseform/expenseform';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -23,6 +24,7 @@ import { DatePipe } from "../pipes/date.pipe";
     ContactPage,
     HomePage,
     TabsPage,
+    ExpenseformPage,
     DatePipe
   ],
   imports: [
@@ -36,7 +38,8 @@ import { DatePipe } from "../pipes/date.pipe";
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    ExpenseformPage
   ],
   providers: [
     StatusBar,
