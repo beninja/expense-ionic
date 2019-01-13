@@ -1,3 +1,27 @@
 page-home {
-
+  .row {
+    border-left: 1px #A1A1A1 solid;
+    border-right: 1px #A1A1A1 solid;
+    &.odd {
+      background-color: #F1F1F1;
+    }
+    &:last-child {
+      border-bottom: 1px #A1A1A1 solid;
+    }
+  }
+  .alignRight {
+    text-align: right;
+  }
+  .alignCenter {
+    text-align: center;
+  }
+  .header {
+    border-bottom: 1px #A1A1A1 solid;
+    border-top: 1px #A1A1A1 solid;
+    .col {
+      text-align: center;
+      font-size: 18px;
+      font-weight: bold;
+    }
+  }
 }

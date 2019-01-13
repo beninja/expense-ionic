@@ -1,17 +1,35 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Home</ion-title>
+    <ion-title>Transactions</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+  <h2 *ngIf="!expenses">Chargement des dernière transactions !</h2>
+  <ion-grid *ngIf="expenses">
+    <ion-row class="header">
+      <ion-col col-4>
+        Date
+      </ion-col>
+      <ion-col col-4>
+        Type
+      </ion-col>
+      <ion-col col-4>
+        Valeur
+      </ion-col>
+    </ion-row>
+    <ion-row
+      *ngFor="let expense of expenses; let odd = odd"
+      [class.odd]="odd">
+      <ion-col col-4 class="alignCenter">
+        {{expense.createdAt | date}}
+      </ion-col>
+      <ion-col col-4 class="alignCenter">
+        {{expense.type}}
+      </ion-col>
+      <ion-col col-4 class="alignRight">
+        {{expense.value}}€
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
