@@ -37,6 +37,11 @@
     <ion-input type="text" [(ngModel)]="newTransaction.comment"></ion-input>
   </ion-item>
 
+  <ion-item>
+    <ion-label floating>Récurence</ion-label>
+    <ion-input type="number" [(ngModel)]="newTransaction.recursive"></ion-input>
+  </ion-item>
+
 </ion-list>
 <button ion-button outline block (click)="sendNewTransaction()">Valider</button>
 </ion-content>

@@ -47,7 +47,6 @@ export class HomePage {
   }
 
   doInfinite(infiniteScroll) {
-    console.log(infiniteScroll);
     this.loadMoreExpenses(this.infiniteScrollCursor * 20, infiniteScroll);
   }
 
